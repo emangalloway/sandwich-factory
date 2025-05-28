@@ -71,8 +71,18 @@ public class UI {
         System.out.println("2.) 8 inch");
         System.out.println("3.) 12 inch");
         String sizeInput = scanner.nextLine();
-        int sizeChoice = Integer.parseInt(sizeInput);
+        int sizeChoice;
         try {
+            int menuChoice = Integer.parseInt(sizeInput);
+            sizeChoice = switch (menuChoice) {
+                case 1 -> 4;
+                case 2 -> 8;
+                case 3 -> 12;
+                default -> {
+                    System.out.println("Invalid choice. Defaulting to 4 inch.");
+                    yield 4;
+                }
+            };
             sizeChoice = Integer.parseInt(sizeInput);
         }catch (NumberFormatException e){
             System.out.println("Invalid input. Defaulting to 4 inch");
