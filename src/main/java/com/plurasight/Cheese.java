@@ -15,7 +15,8 @@ public class Cheese extends AbstractPremiumTopping {
             total = 1.50;
         } else if (size == 12) {
             total = 2.25;
-        }
+        } else
+            throw new IllegalArgumentException("Unsupported sandwich size: "+size);
         return total;
     }
 }
