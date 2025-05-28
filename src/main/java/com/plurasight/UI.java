@@ -27,7 +27,6 @@ public class UI {
                     break;
             }
 
-
         }
 
     }
@@ -83,7 +82,6 @@ public class UI {
                     yield 4;
                 }
             };
-            sizeChoice = Integer.parseInt(sizeInput);
         }catch (NumberFormatException e){
             System.out.println("Invalid input. Defaulting to 4 inch");
             sizeChoice = 4;
@@ -112,7 +110,14 @@ public class UI {
         System.out.println("5.) Chicken");
         System.out.println("6.) Bacon");
         String meatChoice = scanner.nextLine();
-        System.out.println("Would you like extra meat?");
+        System.out.println("Would you like extra meat (yes or no)?");
+        String extraMeat = scanner.nextLine();
+        Meats meats = getMeatsByChoice(meatChoice);
+        if (meats != null){
+            sandwich.addToppings(meats);
+        }if (askYesNo("Would you like extra meat?")){
+            sandwich.addToppings(meats);
+        }
 
         System.out.println("==========Select Cheese==========");
         System.out.println("1.) American");
@@ -137,13 +142,10 @@ public class UI {
             RegularTopping topping = getRegularToppingByChoice(choice);
             if (topping != null) {
                 sandwich.addToppings(topping);
-
+            } else if (choice.equalsIgnoreCase("done")) {
+                break;
             }
         }
-
-        System.out.println("==========Select Sauces==========");
-
-        
 
     }
 
@@ -169,5 +171,30 @@ public class UI {
                 return new RegularTopping("Mushrooms");
             default:return null;
         }
+    }
+    private Meats getMeatsByChoice(String choice){
+        switch (choice){
+            case "1":
+                return new Meats("Steak");
+            case "2":
+                return new Meats("Ham");
+            case "3":
+                return new Meats("Salami");
+            case "4":
+                return new Meats("Roast Beef");
+            case "5":
+                return new Meats("Chicken");
+            case "6":
+                return new Meats("Bacon");
+            default:return null;
+        }
+    }
+    private boolean askYesOrNo(String prompt){
+        System.out.println(prompt+"(Yes/No)");
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase("Yes")){
+            return true;
+        }else
+            return false;
     }
 }
