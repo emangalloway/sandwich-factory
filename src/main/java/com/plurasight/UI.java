@@ -33,6 +33,7 @@ public class UI {
     }
 
     public void processStartNewOrder(){
+        currentOrder = new Order();
         boolean quit = false;
         while (!quit){
         System.out.println("==========Order Screen==========");
@@ -54,7 +55,7 @@ public class UI {
                 processAddChips();
                 break;
             case "4":
-                processCheckOut;
+                processCheckOut();
                 break;
             case "0":
                 quit = true;
@@ -62,5 +63,20 @@ public class UI {
         }
 
         }
+    }
+
+    public void processAddSandwich(){
+        System.out.println("==========Select Bread==========");
+        System.out.println("1.) White");
+        System.out.println("2.) Wheat");
+        System.out.println("3.) Rye");
+        System.out.println("4.) Wrap");
+        String breadChoice = scanner.nextLine();
+
+        System.out.println("==========Select Topping==========");
+
+        Sandwich sandwich = new Sandwich()
+        System.out.println();
+
     }
 }
