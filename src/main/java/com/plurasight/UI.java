@@ -110,13 +110,16 @@ public class UI {
         System.out.println("5.) Chicken");
         System.out.println("6.) Bacon");
         String meatChoice = scanner.nextLine();
-        System.out.println("Would you like extra meat (yes or no)?");
-        String extraMeat = scanner.nextLine();
         Meats meats = getMeatsByChoice(meatChoice);
-        if (meats != null){
+        if (meats != null) {
             sandwich.addToppings(meats);
-        }if (askYesNo("Would you like extra meat?")){
-            sandwich.addToppings(meats);
+            if (askYesOrNo("Would you like extra meat?")) {
+                System.out.println("Select extra meat");
+                String extraMeatChoice = scanner.nextLine();
+                Meats extraMeats = getMeatsByChoice(extraMeatChoice);
+                if (extraMeats != null)
+                    sandwich.addToppings(extraMeats);
+            }
         }
 
         System.out.println("==========Select Cheese==========");
