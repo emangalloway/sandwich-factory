@@ -2,9 +2,9 @@ package com.plurasight;
 
 public class Drink implements IPriceable{
     private String  drinkType;
-    private int size;
+    private String size;
 
-    public Drink(String drinkType, int size) {
+    public Drink(String drinkType, String size) {
         this.drinkType = drinkType;
         this.size = size;
     }
@@ -17,16 +17,32 @@ public class Drink implements IPriceable{
         this.drinkType = drinkType;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
     @Override
     public double getPrice() {
-        return 0;
+        double total = 0;
+        if (size.equalsIgnoreCase("small")){
+            total = 2.00;
+        } else if (size.equalsIgnoreCase("medium")) {
+            total = 2.50;
+        } else if (size.equalsIgnoreCase("large")) {
+            total = 3.00;
+        }
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "drinkType='" + drinkType + '\'' +
+                ", size=" + size +
+                '}';
     }
 }

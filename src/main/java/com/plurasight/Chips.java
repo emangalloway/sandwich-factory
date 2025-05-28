@@ -17,6 +17,6 @@ public class Chips implements IPriceable{
 
     @Override
     public double getPrice() {
-        return 0;
+        return 1.50;
     }
 }
