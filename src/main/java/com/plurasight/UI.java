@@ -158,7 +158,7 @@ public class UI {
                 sandwich.addToppings(topping);
             } else if (choice.equalsIgnoreCase("done")) {
                 break;
-            }
+            }currentOrder.addPriceable(sandwich);
         }
 
     }
@@ -224,5 +224,55 @@ public class UI {
             return true;
         }else
             return false;
+    }
+    public void processAddDrink(){
+        if (askYesOrNo("Would like a drink")) {
+            System.out.println("==========Select size==========");
+            System.out.println("1.) Small");
+            System.out.println("2.) Medium");
+            System.out.println("3.) Large");
+            String sizeInput = scanner.nextLine();
+            String sizeChoice;
+            try {
+                int menuChoice = Integer.parseInt(sizeInput);
+                sizeChoice = switch (menuChoice) {
+                    case 1 -> "Small";
+                    case 2 -> "Medium";
+                    case 3 -> "Large";
+                    default -> {
+                        System.out.println("Invalid choice. Defaulting to Small.");
+                        yield "Small";
+                    }
+                };
+            } catch (Exception e) {
+                System.out.println("Invalid input. Defaulting to Small");
+                sizeChoice = "Small";
+            }
+            System.out.println("==========Select flavor==========");
+            System.out.println("1.) Pepsi");
+            System.out.println("2.) Dr.Pepper");
+            System.out.println("3.) Fanta");
+            System.out.println("4.) Lemonade");
+            System.out.println("5.) Sweet Tea");
+            System.out.println("6.) Water");
+            String flavor = scanner.nextLine();
+            Drink drink = new Drink(flavor, sizeChoice);
+            currentOrder.addPriceable(drink);
+        }
+    }
+    public void processAddChips(){
+        if (askYesOrNo("Would you like chips")){
+            System.out.println("Which brand");
+            System.out.println("Doritos");
+            System.out.println("Lays");
+            System.out.println("Pringles");
+            String chipChoice = scanner.nextLine();
+            Chips chips = new Chips(chipChoice);
+            currentOrder.addPriceable(chips);
+        }
+
+    }
+    public void processCheckOut(){
+
     }
 }
