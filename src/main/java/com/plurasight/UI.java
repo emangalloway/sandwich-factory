@@ -66,12 +66,33 @@ public class UI {
     }
 
     public void processAddSandwich(){
+        System.out.println("==========Select size==========");
+        System.out.println("1.) 4 inch");
+        System.out.println("2.) 8 inch");
+        System.out.println("3.) 12 inch");
+        String sizeInput = scanner.nextLine();
+        int sizeChoice = Integer.parseInt(sizeInput);
+        try {
+            sizeChoice = Integer.parseInt(sizeInput);
+        }catch (NumberFormatException e){
+            System.out.println("Invalid input. Defaulting to 4 inch");
+            sizeChoice = 4;
+        }
+
         System.out.println("==========Select Bread==========");
         System.out.println("1.) White");
         System.out.println("2.) Wheat");
         System.out.println("3.) Rye");
         System.out.println("4.) Wrap");
         String breadChoice = scanner.nextLine();
+
+        System.out.println("==========Toasted==========");
+        System.out.println("1.) yes");
+        System.out.println("2.) no");
+        String toastedInput = scanner.nextLine();
+        boolean toasted = toastedInput.equals("1") || toastedInput.equalsIgnoreCase("yes");
+
+        Sandwich sandwich = new Sandwich(breadChoice,toasted,sizeChoice);
 
         System.out.println("==========Select Meat==========");
         System.out.println("1.) Steak");
@@ -81,6 +102,7 @@ public class UI {
         System.out.println("5.) Chicken");
         System.out.println("6.) Bacon");
         String meatChoice = scanner.nextLine();
+        System.out.println("Would you like extra meat?");
 
         System.out.println("==========Select Cheese==========");
         System.out.println("1.) American");
@@ -90,15 +112,52 @@ public class UI {
         String cheeseChoice = scanner.nextLine();
 
         System.out.println("==========Select Toppings==========");
-        System.out.println("1.) Lettuce");
-        System.out.println("2.) Peppers");
+        System.out.println("Add toppings (Type done when finished)");
+        while (true){
+            System.out.println("1.) Lettuce");
+            System.out.println("2.) Peppers");
+            System.out.println("3.) Onions");
+            System.out.println("4.) Tomatoes");
+            System.out.println("5.) Jalapenos");
+            System.out.println("6.) Cucumbers");
+            System.out.println("7.) Pickles");
+            System.out.println("8.) Guacamole");
+            System.out.println("9.) Mushrooms");
+            String choice = scanner.nextLine();
+            RegularTopping topping = getRegularToppingByChoice(choice);
+            if (topping != null) {
+                sandwich.addToppings(topping);
 
-
+            }
+        }
 
         System.out.println("==========Select Sauces==========");
 
-        Sandwich sandwich = new Sandwich()
-        System.out.println();
+        
 
+    }
+
+    private RegularTopping getRegularToppingByChoice(String choice){
+        switch (choice){
+            case "1":
+                return new RegularTopping("Lettuce");
+            case "2":
+                return new RegularTopping("Peppers");
+            case "3":
+                return new RegularTopping("Onions");
+            case "4":
+                return new RegularTopping("Tomatoes");
+            case "5":
+                return new RegularTopping("Jalapenos");
+            case "6":
+                return new RegularTopping("Cucumbers");
+            case "7":
+                return new RegularTopping("Pickles");
+            case "8":
+                return new RegularTopping("Guacamole");
+            case "9":
+                return new RegularTopping("Mushrooms");
+            default:return null;
+        }
     }
 }
