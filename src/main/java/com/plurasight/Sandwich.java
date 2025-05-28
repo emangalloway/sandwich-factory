@@ -1,0 +1,88 @@
+package com.plurasight;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sandwich implements IPriceable{
+    private String breadType;
+    private boolean isToasted;
+    private int size;
+    private boolean extraMeat;
+    private boolean extraCheese;
+    private List<AbstractTopping> topping;
+
+    public Sandwich(String breadType, boolean isToasted, int size) {
+        this.breadType = breadType;
+        this.isToasted = isToasted;
+        this.size = size;
+        this.topping = new ArrayList<>();
+    }
+
+    public String getBreadType() {
+        return breadType;
+    }
+
+    public void setBreadType(String breadType) {
+        this.breadType = breadType;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public boolean isExtraMeat() {
+        return extraMeat;
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+    }
+
+    public boolean isExtraCheese() {
+        return extraCheese;
+    }
+
+    public void setExtraCheese(boolean extraCheese) {
+        this.extraCheese = extraCheese;
+    }
+
+    public void addToppings(AbstractTopping topping){
+        this.topping.add(topping);
+    }
+
+    @Override
+    public double getPrice() {
+        double total = 0;
+        for (AbstractTopping abstractTopping : topping) {
+            if (topping == extraMeat || extraCheese){
+
+            }
+
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "topping=" + topping +
+                ", extraCheese=" + extraCheese +
+                ", extraMeat=" + extraMeat +
+                ", size=" + size +
+                ", isToasted=" + isToasted +
+                ", breadType='" + breadType + '\'' +
+                '}';
+    }
+}
