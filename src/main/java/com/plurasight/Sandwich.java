@@ -65,12 +65,22 @@ public class Sandwich implements IPriceable{
     @Override
     public double getPrice() {
         double total = 0;
+
         for (AbstractTopping abstractTopping : topping) {
-            if (topping == extraMeat || extraCheese){
-
-            }
-
+           total += abstractTopping.getPrice(size);
         }
+        double basePrice = 0;
+        if (size == 4){
+            basePrice = 5.50;
+            if (extraCheese){
+                total = basePrice + .30;
+            }
+        } else if (size == 8) {
+            basePrice = 7.00;
+            if (extraCheese){
+                total = basePrice + .60;
+            }
+        } else if (size == 12){}
         return 0;
     }
 
