@@ -73,7 +73,29 @@ public class UI {
         System.out.println("4.) Wrap");
         String breadChoice = scanner.nextLine();
 
-        System.out.println("==========Select Topping==========");
+        System.out.println("==========Select Meat==========");
+        System.out.println("1.) Steak");
+        System.out.println("2.) Ham");
+        System.out.println("3.) Salami");
+        System.out.println("4.) Roast Beef");
+        System.out.println("5.) Chicken");
+        System.out.println("6.) Bacon");
+        String meatChoice = scanner.nextLine();
+
+        System.out.println("==========Select Cheese==========");
+        System.out.println("1.) American");
+        System.out.println("2.) Provolone");
+        System.out.println("3.) Cheddar");
+        System.out.println("4.) Swiss");
+        String cheeseChoice = scanner.nextLine();
+
+        System.out.println("==========Select Toppings==========");
+        System.out.println("1.) Lettuce");
+        System.out.println("2.) Peppers");
+
+
+
+        System.out.println("==========Select Sauces==========");
 
         Sandwich sandwich = new Sandwich()
         System.out.println();
