@@ -121,6 +121,7 @@ public class UI {
                     sandwich.addToppings(extraMeats);
             }
         }
+        System.out.println(meats.getName()+ "added to your sandwich. ");
 
         System.out.println("==========Select Cheese==========");
         System.out.println("1.) American");
@@ -128,6 +129,16 @@ public class UI {
         System.out.println("3.) Cheddar");
         System.out.println("4.) Swiss");
         String cheeseChoice = scanner.nextLine();
+        Cheese cheese = getCheeseByChoice(cheeseChoice);
+        if (cheese != null){
+            sandwich.addToppings(cheese);
+            if (askYesOrNo("Would you like to add extra cheese?")){
+                String extraCheeseChoice = scanner.nextLine();
+                Cheese extraCheese = getCheeseByChoice(extraCheeseChoice);
+                if (extraCheese != null)
+                    sandwich.addToppings(extraCheese);
+            }
+        }System.out.println(cheese.getName()+ "added to your sandwich. ");
 
         System.out.println("==========Select Toppings==========");
         System.out.println("Add toppings (Type done when finished)");
@@ -189,6 +200,20 @@ public class UI {
                 return new Meats("Chicken");
             case "6":
                 return new Meats("Bacon");
+            default:return null;
+        }
+    }
+
+    private Cheese getCheeseByChoice(String choice){
+        switch (choice){
+            case "1":
+                return new Cheese("American");
+            case "2":
+                return new Cheese("Provolone");
+            case "3":
+                return new Cheese("Cheddar");
+            case "4":
+                return new Cheese("Swiss");
             default:return null;
         }
     }
