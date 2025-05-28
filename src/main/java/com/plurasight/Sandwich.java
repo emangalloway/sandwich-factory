@@ -66,22 +66,43 @@ public class Sandwich implements IPriceable{
     public double getPrice() {
         double total = 0;
 
-        for (AbstractTopping abstractTopping : topping) {
-           total += abstractTopping.getPrice(size);
-        }
-        double basePrice = 0;
+        //Pricing structure for size
         if (size == 4){
-            basePrice = 5.50;
-            if (extraCheese){
-                total = basePrice + .30;
-            }
+            total = 5.50;
         } else if (size == 8) {
-            basePrice = 7.00;
-            if (extraCheese){
-                total = basePrice + .60;
+            total = 7.00;
+        } else if (size == 12){
+            total = 8.50;
+        } else
+            throw new IllegalArgumentException("Unsupported sandwich size: "+size);
+
+        //Pricing structure for toppings
+        for (AbstractTopping abstractTopping : topping) {
+            total += abstractTopping.getPrice(size);
+        }
+
+        //Pricing structure for extra cheese
+        if (extraCheese){
+            if (size == 4){
+                total += .30;
+            } else if (size == 8) {
+                total += .60;
+            } else if (size == 12) {
+                total += .90;
             }
-        } else if (size == 12){}
-        return 0;
+        }
+
+        // Pricing structure for extra meat
+        if (extraMeat){
+            if (size == 4){
+                total += .50;
+            } else if (size == 8) {
+                total += 1.00;
+            } else if (size == 12) {
+                total += 1.50;
+            }
+        }
+        return total;
     }
 
     @Override
