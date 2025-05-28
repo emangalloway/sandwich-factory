@@ -160,7 +160,23 @@ public class UI {
                 break;
             }currentOrder.addPriceable(sandwich);
         }
-
+        System.out.println("==========Select sauces==========");
+        System.out.println("Add sauces (Type done when finished)");
+        while (true) {
+            System.out.println("1.) Mayo");
+            System.out.println("2.) Mustard");
+            System.out.println("3.) Ketchup");
+            System.out.println("4.) Ranch");
+            System.out.println("5.) Thousands Island");
+            System.out.println("6.) Vinaigrette");
+            String sauceChoice = scanner.nextLine();
+            Sauces sauces = getSaucesByChoice(sauceChoice);
+            if (sauces != null) {
+                sandwich.addToppings(sauces);
+            } else if (sauceChoice.equalsIgnoreCase("done")) {
+                break;
+            }
+        }
     }
 
     private RegularTopping getRegularToppingByChoice(String choice){
@@ -183,6 +199,23 @@ public class UI {
                 return new RegularTopping("Guacamole");
             case "9":
                 return new RegularTopping("Mushrooms");
+            default:return null;
+        }
+    }
+    private Sauces getSaucesByChoice(String choice){
+        switch (choice){
+            case "1":
+                return new Sauces("Mayo");
+            case "2":
+                return new Sauces("Mustard");
+            case "3":
+                return new Sauces("Ketchup");
+            case "4":
+                return new Sauces("Ranch");
+            case "5":
+                return new Sauces("Thousands Island");
+            case "6":
+                return new Sauces("Vinaigrette");
             default:return null;
         }
     }
