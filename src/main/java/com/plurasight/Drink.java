@@ -40,6 +40,6 @@ public class Drink implements IPriceable{
 
     @Override
     public String toString() {
-        return "Drink: "+size +"\n"+drinkType;
+        return "Drink: "+size +" "+drinkType;
     }
 }

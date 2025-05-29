@@ -296,11 +296,10 @@ public class UI {
             String sizeInput = scanner.nextLine();
             String sizeChoice;
             try {
-                int menuChoice = Integer.parseInt(sizeInput);
-                sizeChoice = switch (menuChoice) {
-                    case 1 -> "Small";
-                    case 2 -> "Medium";
-                    case 3 -> "Large";
+                sizeChoice = switch (sizeInput) {
+                    case "1" -> "Small";
+                    case "2" -> "Medium";
+                    case "3" -> "Large";
                     default -> {
                         System.out.println("Invalid choice. Defaulting to Small.");
                         yield "Small";
@@ -320,14 +319,13 @@ public class UI {
             String flavorInput = scanner.nextLine();
             String flavorChoice;
             try {
-                int drinkChoice = Integer.parseInt(flavorInput);
-                flavorChoice = switch (drinkChoice){
-                    case 1-> "Pepsi";
-                    case 2 -> "Dr.Pepper";
-                    case 3 -> "Fanta";
-                    case 4 -> "Lemonade";
-                    case 5 -> "Sweet Tea";
-                    case 6 -> "Water";
+                flavorChoice = switch (flavorInput){
+                    case "1"-> "Pepsi";
+                    case "2" -> "Dr.Pepper";
+                    case "3" -> "Fanta";
+                    case "4" -> "Lemonade";
+                    case "5" -> "Sweet Tea";
+                    case "6" -> "Water";
                     default -> {
                         System.out.println("Invalid choice. Defaulting to water");
                         yield "Water";

@@ -109,15 +109,40 @@ public class Sandwich implements IPriceable{
 
     @Override
     public String toString() {
+        StringBuilder cheeseSection = new StringBuilder();
+        StringBuilder meatSection = new StringBuilder();
+        StringBuilder regToppingSection = new StringBuilder();
+        StringBuilder sauceSection = new StringBuilder();
+        for (AbstractTopping abstractTopping : topping) {
+            if (abstractTopping instanceof Cheese){
+                cheeseSection.append(abstractTopping);
+            } else if (abstractTopping instanceof Meats) {
+                meatSection.append(abstractTopping);
+            } else if (abstractTopping instanceof RegularTopping) {
+                regToppingSection.append(abstractTopping);
+            } else if (abstractTopping instanceof Sauces) {
+                sauceSection.append(abstractTopping);
+            } break;
+
+            StringBuilder extraMeat = new StringBuilder();
+            for (AbstractTopping meat :topping ) {
+                if (abstractTopping instanceof Meats){
+                    if (abstractToppin)
+                }
+
+            }
+            StringBuilder extraCheese = new StringBuilder();
+
+        }
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Sandwich: ").append("\n")
                 .append("Size: ").append(getSize()).append("\n")
-                .append("Bread: ").append(getBreadType()).append("\n");
-                /*.append("Cheese: ").append( instanceof Cheese).append("\n")
-                .append("Meats: ").append(topping instanceof Meats).append("\n")
-                .append("Extra Cheese & Meat").append(extraCheese).append(extraMeat).append("\n")
-                .append("Toppings: ").append(topping instanceof RegularTopping).append("\n")
-                .append("Sauces: ").append(topping instanceof Sauces).append("\n");*/
+                .append("Bread: ").append(getBreadType()).append("\n")
+                .append("Cheese: ").append(cheeseSection).append("\n")
+                .append("Meats: ").append(meatSection).append("\n")
+                .append("Extra Meat").append()
+                .append("Toppings: ").append(regToppingSection).append("\n")
+                .append("Sauces: ").append(sauceSection).append("\n");
         return stringBuilder.toString();
     }
 }
