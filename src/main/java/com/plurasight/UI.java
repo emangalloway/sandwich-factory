@@ -272,8 +272,8 @@ public class UI {
         }else
             return false;
     }
+
     public void processAddDrink(){
-        if (askYesOrNo("Would like a drink")) {
             System.out.println("==========Select size==========");
             System.out.println("1.) Small");
             System.out.println("2.) Medium");
@@ -302,10 +302,28 @@ public class UI {
             System.out.println("4.) Lemonade");
             System.out.println("5.) Sweet Tea");
             System.out.println("6.) Water");
-            String flavor = scanner.nextLine();
-            Drink drink = new Drink(flavor, sizeChoice);
+            String flavorInput = scanner.nextLine();
+            String flavorChoice;
+            try {
+                int drinkChoice = Integer.parseInt(flavorInput);
+                flavorChoice = switch (drinkChoice){
+                    case 1-> "Pepsi";
+                    case 2 -> "Dr.Pepper";
+                    case 3 -> "Fanta";
+                    case 4 -> "Lemonade";
+                    case 5 -> "Sweet Tea";
+                    case 6 -> "Water";
+                    default -> {
+                        System.out.println("Invalid choice. Defaulting to water");
+                        yield "Water";
+                    }
+                };
+
+            }catch (Exception e){
+                System.out.println("Flavor unavailable");
+                flavorChoice = "Water";
+            }Drink drink = new Drink(flavorChoice,sizeChoice);
             currentOrder.addPriceable(drink);
-        }
     }
     public void processAddChips(){
         if (askYesOrNo("Would you like chips")){
