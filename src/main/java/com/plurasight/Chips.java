@@ -19,4 +19,9 @@ public class Chips implements IPriceable{
     public double getPrice() {
         return 1.50;
     }
+
+    @Override
+    public String toString() {
+        return "Chips: " +chipBrand;
+    }
 }
