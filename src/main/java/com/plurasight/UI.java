@@ -141,6 +141,7 @@ public class UI {
         if (cheese != null){
             sandwich.addToppings(cheese);
             if (askYesOrNo("Would you like to add extra cheese?")){
+                System.out.println("Select extra cheese");
                 String extraCheeseChoice = scanner.nextLine();
                 extraCheese = getCheeseByChoice(extraCheeseChoice);
                 if (extraCheese != null){
@@ -171,7 +172,7 @@ public class UI {
                 sandwich.addToppings(topping);
             } else if (choice.equalsIgnoreCase("done")) {
                 break;
-            }currentOrder.addPriceable(sandwich);
+            }
         }
         System.out.println("==========Select sauces==========");
         System.out.println("Add sauces (Type done when finished)");
@@ -189,7 +190,7 @@ public class UI {
             } else if (sauceChoice.equalsIgnoreCase("done")) {
                 break;
             }
-        }
+        }currentOrder.addPriceable(sandwich);
     }
 
     private RegularTopping getRegularToppingByChoice(String choice){
