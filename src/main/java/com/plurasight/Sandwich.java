@@ -10,6 +10,7 @@ public class Sandwich implements IPriceable {
     private boolean extraMeat;
     private boolean extraCheese;
     private List<Topping> topping;
+    private List<Topping> extraTopping;
 
     public Sandwich(int size, boolean isToasted, String breadType) {
         this.extraCheese = extraCheese;
@@ -18,6 +19,7 @@ public class Sandwich implements IPriceable {
         this.isToasted = isToasted;
         this.breadType = breadType;
         this.topping = new ArrayList<>();
+        this.extraTopping = new ArrayList<>();
     }
 
     public String getBreadType() {
@@ -62,6 +64,11 @@ public class Sandwich implements IPriceable {
 
     public void addToppings(Topping topping) {
         this.topping.add(topping);
+    }
+    public void addExtraTopping(Topping topping){
+        if (isExtraMeat() || isExtraCheese()){
+            this.extraTopping.add(topping);
+        }
     }
 
     @Override
@@ -120,15 +127,10 @@ public class Sandwich implements IPriceable {
         List<String> sauceNames = new ArrayList<>();
 
         for (Topping top : topping) {
-            if (top instanceof Meats && isExtraMeat()){
-                extraMeatSection.append(top);
-            } else if (top instanceof Meats & !isExtraMeat()) {
+            if (top instanceof Meats){
                 meatSection.append(top);
             }
-
-            if (top instanceof Cheese && isExtraCheese()){
-                extraCheeseSection.append(top);
-            } else if (top instanceof Cheese && !isExtraCheese()) {
+            if (top instanceof Cheese) {
                 cheeseSection.append(top);
             }
             if (top instanceof RegularTopping){
@@ -136,6 +138,15 @@ public class Sandwich implements IPriceable {
             }
             if (top instanceof Sauces){
                 sauceNames.add(top.toString());
+            }
+        }
+
+        for (Topping top : extraTopping) {
+            if (top instanceof Meats && isExtraMeat()){
+                extraMeatSection.append(top);
+            }
+            if (top instanceof Cheese && isExtraCheese()){
+                extraCheeseSection.append(top);
             }
         }
         regToppingSection.append(String.join(",",regToppingNames));

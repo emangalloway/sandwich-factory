@@ -133,12 +133,18 @@ public class UI {
 
             if (askYesOrNo("Would you like extra meat?")) {
                 System.out.println("Select extra meat");
+                System.out.println("1.) Steak");
+                System.out.println("2.) Ham");
+                System.out.println("3.) Salami");
+                System.out.println("4.) Roast Beef");
+                System.out.println("5.) Chicken");
+                System.out.println("6.) Bacon");
                 String extraMeatChoice = scanner.nextLine();
                 extraMeats = getMeatsByChoice(extraMeatChoice);
                 if (extraMeats != null){
                     System.out.println(meats+", and "+extraMeats+" have been added to your sandwich.");
                     sandwich.setExtraMeat(true);
-                    sandwich.addToppings(extraMeats);
+                    sandwich.addExtraTopping(extraMeats);
                 }else {
                     System.out.println(meats+ " has been added to your sandwich.");
                 }
@@ -158,12 +164,16 @@ public class UI {
             sandwich.addToppings(cheese);
             if (askYesOrNo("Would you like to add extra cheese?")){
                 System.out.println("Select extra cheese");
+                System.out.println("1.) American");
+                System.out.println("2.) Provolone");
+                System.out.println("3.) Cheddar");
+                System.out.println("4.) Swiss");
                 String extraCheeseChoice = scanner.nextLine();
                 extraCheese = getCheeseByChoice(extraCheeseChoice);
                 if (extraCheese != null){
                     System.out.println(cheese+", and "+extraCheese+" have been added to your sandwich");
                     sandwich.setExtraCheese(true);
-                    sandwich.addToppings(extraCheese);
+                    sandwich.addExtraTopping(extraCheese);
                 }else {
                     System.out.println(cheese+ " has been added to your sandwich. ");
                 }
