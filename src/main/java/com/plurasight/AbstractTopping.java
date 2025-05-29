@@ -12,4 +12,9 @@ public abstract class AbstractTopping {
     }
 
     public abstract double getPrice(int size);
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -11,10 +11,12 @@ public class Sandwich implements IPriceable{
     private boolean extraCheese;
     private List<AbstractTopping> topping;
 
-    public Sandwich(String breadType, boolean isToasted, int size) {
-        this.breadType = breadType;
-        this.isToasted = isToasted;
+    public Sandwich(int size, boolean isToasted, String breadType) {
+        this.extraCheese = extraCheese;
+        this.extraMeat = extraMeat;
         this.size = size;
+        this.isToasted = isToasted;
+        this.breadType = breadType;
         this.topping = new ArrayList<>();
     }
 
@@ -107,8 +109,7 @@ public class Sandwich implements IPriceable{
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "topping=" + topping +
+        return "Sandwich: "+ topping +
                 ", extraCheese=" + extraCheese +
                 ", extraMeat=" + extraMeat +
                 ", size=" + size +

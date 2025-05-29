@@ -19,4 +19,9 @@ public class Meats extends AbstractPremiumTopping {
             throw new IllegalArgumentException("Unsupported sandwich size: "+size);
         return total;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

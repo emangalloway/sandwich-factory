@@ -6,6 +6,7 @@ public class Cheese extends AbstractPremiumTopping {
         super(name);
     }
 
+
     @Override
     public double getPrice(int size) {
         double total = 0;
@@ -18,5 +19,10 @@ public class Cheese extends AbstractPremiumTopping {
         } else
             throw new IllegalArgumentException("Unsupported sandwich size: "+size);
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 }

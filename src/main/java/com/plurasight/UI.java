@@ -100,7 +100,7 @@ public class UI {
         String toastedInput = scanner.nextLine();
         boolean toasted = toastedInput.equals("1") || toastedInput.equalsIgnoreCase("yes");
 
-        Sandwich sandwich = new Sandwich(breadChoice,toasted,sizeChoice);
+        Sandwich sandwich = new Sandwich(sizeChoice,toasted,breadChoice);
 
         System.out.println("==========Select Meat==========");
         System.out.println("1.) Steak");
@@ -111,17 +111,23 @@ public class UI {
         System.out.println("6.) Bacon");
         String meatChoice = scanner.nextLine();
         Meats meats = getMeatsByChoice(meatChoice);
+        Meats extraMeats = null;
         if (meats != null) {
             sandwich.addToppings(meats);
+
             if (askYesOrNo("Would you like extra meat?")) {
                 System.out.println("Select extra meat");
                 String extraMeatChoice = scanner.nextLine();
-                Meats extraMeats = getMeatsByChoice(extraMeatChoice);
-                if (extraMeats != null)
+                extraMeats = getMeatsByChoice(extraMeatChoice);
+                if (extraMeats != null){
+                    System.out.println(meats+", and "+extraMeats+" have been added to your sandwich.");
                     sandwich.addToppings(extraMeats);
+                }else {
+                    System.out.println(meats+ " has been added to your sandwich.");
+                }
             }
         }
-        System.out.println(meats.getName()+ "added to your sandwich. ");
+
 
         System.out.println("==========Select Cheese==========");
         System.out.println("1.) American");
@@ -130,15 +136,20 @@ public class UI {
         System.out.println("4.) Swiss");
         String cheeseChoice = scanner.nextLine();
         Cheese cheese = getCheeseByChoice(cheeseChoice);
+        Cheese extraCheese = null;
         if (cheese != null){
             sandwich.addToppings(cheese);
             if (askYesOrNo("Would you like to add extra cheese?")){
                 String extraCheeseChoice = scanner.nextLine();
-                Cheese extraCheese = getCheeseByChoice(extraCheeseChoice);
-                if (extraCheese != null)
+                extraCheese = getCheeseByChoice(extraCheeseChoice);
+                if (extraCheese != null){
+                    System.out.println(cheese+", and "+extraCheese+" have been added to your sandwich");
                     sandwich.addToppings(extraCheese);
+                }else {
+                    System.out.println(cheese+ " has been added to your sandwich. ");
+                }
             }
-        }System.out.println(cheese.getName()+ "added to your sandwich. ");
+        }
 
         System.out.println("==========Select Toppings==========");
         System.out.println("Add toppings (Type done when finished)");
@@ -305,9 +316,25 @@ public class UI {
         }
 
     }
-    public void processCheckOut(){
-        
+    public void processCheckOut() {
+        boolean cancel = false;
+        while (!cancel) {
 
+            System.out.println("==========Checkout==========");
+            System.out.println(currentOrder.getOrderDetails());
 
+            System.out.println("1.) Confirm");
+            System.out.println("2.) Cancel");
+            String choiceInput = scanner.nextLine();
+
+            if (choiceInput.equalsIgnoreCase("confirm") || choiceInput.equals("1")) {
+                OrderFileManager orderFileManager = new OrderFileManager();
+                orderFileManager.saveOrder(currentOrder);
+                System.out.println("Order confirmed and receipt saved");
+                cancel = true;
+            } else
+                cancel = true;
+
+        }
     }
 }

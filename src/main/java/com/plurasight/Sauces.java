@@ -9,4 +9,9 @@ public class Sauces extends AbstractTopping {
     public double getPrice(int size) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

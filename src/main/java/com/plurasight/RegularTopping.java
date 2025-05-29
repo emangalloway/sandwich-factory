@@ -9,4 +9,9 @@ public class RegularTopping extends AbstractTopping {
     public double getPrice(int size) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
