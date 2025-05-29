@@ -3,13 +3,13 @@ package com.plurasight;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich implements IPriceable{
+public class Sandwich implements IPriceable {
     private String breadType;
     private boolean isToasted;
     private int size;
     private boolean extraMeat;
     private boolean extraCheese;
-    private List<AbstractTopping> topping;
+    private List<Topping> topping;
 
     public Sandwich(int size, boolean isToasted, String breadType) {
         this.extraCheese = extraCheese;
@@ -60,7 +60,7 @@ public class Sandwich implements IPriceable{
         this.extraCheese = extraCheese;
     }
 
-    public void addToppings(AbstractTopping topping){
+    public void addToppings(Topping topping) {
         this.topping.add(topping);
     }
 
@@ -69,23 +69,23 @@ public class Sandwich implements IPriceable{
         double total = 0;
 
         //Pricing structure for size
-        if (size == 4){
+        if (size == 4) {
             total = 5.50;
         } else if (size == 8) {
             total = 7.00;
-        } else if (size == 12){
+        } else if (size == 12) {
             total = 8.50;
         } else
-            throw new IllegalArgumentException("Unsupported sandwich size: "+size);
+            throw new IllegalArgumentException("Unsupported sandwich size: " + size);
 
         //Pricing structure for toppings
-        for (AbstractTopping abstractTopping : topping) {
-            total += abstractTopping.getPrice(size);
+        for (Topping topping : this.topping) {
+            total += topping.getPrice(size);
         }
 
         //Pricing structure for extra cheese
-        if (extraCheese){
-            if (size == 4){
+        if (extraCheese) {
+            if (size == 4) {
                 total += .30;
             } else if (size == 8) {
                 total += .60;
@@ -95,8 +95,8 @@ public class Sandwich implements IPriceable{
         }
 
         // Pricing structure for extra meat
-        if (extraMeat){
-            if (size == 4){
+        if (extraMeat) {
+            if (size == 4) {
                 total += .50;
             } else if (size == 8) {
                 total += 1.00;
@@ -109,40 +109,46 @@ public class Sandwich implements IPriceable{
 
     @Override
     public String toString() {
-        StringBuilder cheeseSection = new StringBuilder();
-        StringBuilder meatSection = new StringBuilder();
-        StringBuilder regToppingSection = new StringBuilder();
-        StringBuilder sauceSection = new StringBuilder();
-        for (AbstractTopping abstractTopping : topping) {
-            if (abstractTopping instanceof Cheese){
-                cheeseSection.append(abstractTopping);
-            } else if (abstractTopping instanceof Meats) {
-                meatSection.append(abstractTopping);
-            } else if (abstractTopping instanceof RegularTopping) {
-                regToppingSection.append(abstractTopping);
-            } else if (abstractTopping instanceof Sauces) {
-                sauceSection.append(abstractTopping);
-            } break;
-
-            StringBuilder extraMeat = new StringBuilder();
-            for (AbstractTopping meat :topping ) {
-                if (abstractTopping instanceof Meats){
-                    if (abstractToppin)
-                }
-
-            }
-            StringBuilder extraCheese = new StringBuilder();
-
-        }
         StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder meatSection = new StringBuilder();
+        StringBuilder extraMeatSection = new StringBuilder();
+        StringBuilder cheeseSection = new StringBuilder();
+        StringBuilder extraCheeseSection = new StringBuilder();
+        StringBuilder regToppingSection = new StringBuilder();
+        StringBuilder saucesSection = new StringBuilder();
+        List<String> regToppingNames = new ArrayList<>();
+        List<String> sauceNames = new ArrayList<>();
+
+        for (Topping top : topping) {
+            if (top instanceof Meats && isExtraMeat()){
+                extraMeatSection.append(top);
+            } else if (top instanceof Meats & !isExtraMeat()) {
+                meatSection.append(top);
+            }
+
+            if (top instanceof Cheese && isExtraCheese()){
+                extraCheeseSection.append(top);
+            } else if (top instanceof Cheese && !isExtraCheese()) {
+                cheeseSection.append(top);
+            }
+            if (top instanceof RegularTopping){
+                regToppingNames.add(top.toString());
+            }
+            if (top instanceof Sauces){
+                sauceNames.add(top.toString());
+            }
+        }
+        regToppingSection.append(String.join(",",regToppingNames));
+        saucesSection.append(String.join(",",sauceNames));
+
         stringBuilder.append("Sandwich: ").append("\n")
-                .append("Size: ").append(getSize()).append("\n")
-                .append("Bread: ").append(getBreadType()).append("\n")
+                .append("Meat: ").append(meatSection).append("\n")
                 .append("Cheese: ").append(cheeseSection).append("\n")
-                .append("Meats: ").append(meatSection).append("\n")
-                .append("Extra Meat").append()
-                .append("Toppings: ").append(regToppingSection).append("\n")
-                .append("Sauces: ").append(sauceSection).append("\n");
+                .append("Toasted: ").append(isToasted()).append("\n")
+                .append("Extra Meat: ").append(extraMeatSection).append("\n")
+                .append("Extra Cheese: ").append(extraCheeseSection).append("\n")
+                .append("Topping: ").append(regToppingSection).append("\n")
+                .append("Sauce: ").append(saucesSection);
         return stringBuilder.toString();
     }
 }

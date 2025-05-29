@@ -1,6 +1,6 @@
 package com.plurasight;
 
-public class Meats extends AbstractPremiumTopping {
+public class Meats extends PremiumTopping {
 
     public Meats(String name) {
         super(name);

@@ -1,6 +1,6 @@
 package com.plurasight;
 
-public class RegularTopping extends AbstractTopping {
+public class RegularTopping extends Topping {
     public RegularTopping(String name) {
         super(name);
     }

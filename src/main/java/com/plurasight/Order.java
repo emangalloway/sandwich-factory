@@ -59,10 +59,25 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order: " +
-                "Date" + date +
-                ", Order ID: " + orderId + '\'' +
-                ", Items: " + items +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder sandwichSection = new StringBuilder();
+        StringBuilder drinkSection = new StringBuilder();
+        StringBuilder chipSection = new StringBuilder();
+
+        for (IPriceable item : items) {
+            if (item instanceof Sandwich){
+                sandwichSection.append(item);
+                item.getPrice();
+            } else if (item instanceof  Drink) {
+                drinkSection.append(item);
+                item.getPrice();
+            }else
+                chipSection.append(item);
+            item.getPrice();
+        }
+        stringBuilder.append("Sandwich: ").append(sandwichSection).append("\n")
+                .append("Drink: ").append(drinkSection).append("\n")
+                .append("Chips: ").append(chipSection).append("\n");
+        return stringBuilder.toString();
     }
 }

@@ -1,6 +1,6 @@
 package com.plurasight;
 
-public class Sauces extends AbstractTopping {
+public class Sauces extends Topping {
     public Sauces(String name) {
         super(name);
     }

@@ -1,9 +1,9 @@
 package com.plurasight;
 
-public abstract class AbstractTopping {
+public abstract class Topping {
     private String name;
 
-    public AbstractTopping(String name) {
+    public Topping(String name) {
         this.name = name;
     }
 
