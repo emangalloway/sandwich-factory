@@ -121,6 +121,7 @@ public class UI {
                 extraMeats = getMeatsByChoice(extraMeatChoice);
                 if (extraMeats != null){
                     System.out.println(meats+", and "+extraMeats+" have been added to your sandwich.");
+                    sandwich.setExtraMeat(true);
                     sandwich.addToppings(extraMeats);
                 }else {
                     System.out.println(meats+ " has been added to your sandwich.");
@@ -144,6 +145,7 @@ public class UI {
                 extraCheese = getCheeseByChoice(extraCheeseChoice);
                 if (extraCheese != null){
                     System.out.println(cheese+", and "+extraCheese+" have been added to your sandwich");
+                    sandwich.setExtraCheese(true);
                     sandwich.addToppings(extraCheese);
                 }else {
                     System.out.println(cheese+ " has been added to your sandwich. ");
