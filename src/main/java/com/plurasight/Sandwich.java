@@ -109,12 +109,15 @@ public class Sandwich implements IPriceable{
 
     @Override
     public String toString() {
-        return "Sandwich: "+ topping +
-                ", extraCheese=" + extraCheese +
-                ", extraMeat=" + extraMeat +
-                ", size=" + size +
-                ", isToasted=" + isToasted +
-                ", breadType='" + breadType + '\'' +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Sandwich: ").append("\n")
+                .append("Size: ").append(getSize()).append("\n")
+                .append("Bread: ").append(getBreadType()).append("\n");
+                /*.append("Cheese: ").append( instanceof Cheese).append("\n")
+                .append("Meats: ").append(topping instanceof Meats).append("\n")
+                .append("Extra Cheese & Meat").append(extraCheese).append(extraMeat).append("\n")
+                .append("Toppings: ").append(topping instanceof RegularTopping).append("\n")
+                .append("Sauces: ").append(topping instanceof Sauces).append("\n");*/
+        return stringBuilder.toString();
     }
 }

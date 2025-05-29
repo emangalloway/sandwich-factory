@@ -92,7 +92,23 @@ public class UI {
         System.out.println("2.) Wheat");
         System.out.println("3.) Rye");
         System.out.println("4.) Wrap");
-        String breadChoice = scanner.nextLine();
+        String breadInput = scanner.nextLine();
+        String breadChoice;
+        try {
+            breadChoice = switch (breadInput){
+                case "1"-> "White";
+                case "2"-> "Wheat";
+                case "3"-> "Rye";
+                case "4"-> "Wrap";
+                default -> {
+                    System.out.println("Bread not found, Defaulting to white.");
+                    yield "White";
+                }
+            };
+        }catch (Exception e){
+            System.out.println("Bread not found, Defaulting to white.");
+            breadChoice = "White";
+        }
 
         System.out.println("==========Toasted==========");
         System.out.println("1.) yes");
@@ -192,7 +208,6 @@ public class UI {
             }
         }currentOrder.addPriceable(sandwich);
     }
-
     private RegularTopping getRegularToppingByChoice(String choice){
         switch (choice){
             case "1":
