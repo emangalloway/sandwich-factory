@@ -1,0 +1,6 @@
+Order ID: ORD- 20250529-210434--8B8C
+Date: 2025-05-29T21:04:34.580081600
+==========Sandwich Factory Receipt==========
+Drink: Medium Dr.Pepper
+
+ Total: $2.50

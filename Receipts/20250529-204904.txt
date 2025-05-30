@@ -1,0 +1,6 @@
+Order ID: ORD- 20250529-204855--6ECE
+Date: 2025-05-29T20:48:55.857992200
+==========Sandwich Factory Receipt==========
+Drink: Small Dr.Pepper
+
+ Total: $2.00

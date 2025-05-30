@@ -1,0 +1,14 @@
+Order ID: ORD- 20250529-204523--916C
+Date: 2025-05-29T20:45:23.284943300
+==========Sandwich Factory Receipt==========
+Sandwich: 
+Meat: Steak
+Cheese: American
+Toasted: true
+Extra Meat: 
+Extra Cheese: 
+Topping: Lettuce,Peppers,Onions
+Sauce: 
+
+
+ Total: $7.25

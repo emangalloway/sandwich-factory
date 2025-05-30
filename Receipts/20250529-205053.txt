@@ -1,0 +1,6 @@
+Order ID: ORD- 20250529-205040--D77D
+Date: 2025-05-29T20:50:40.523951800
+==========Sandwich Factory Receipt==========
+Chips: lays
+
+ Total: $1.50

@@ -376,6 +376,7 @@ public class UI {
                 orderFileManager.saveOrder(currentOrder);
                 System.out.println("Order confirmed and receipt saved");
                 cancel = true;
+                System.exit(0);
             } else
                 cancel = true;
 
