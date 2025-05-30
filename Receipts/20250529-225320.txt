@@ -1,0 +1,6 @@
+Order ID: ORD- 20250529-225311--A5C6
+Date: 2025-05-29T22:53:11.729303200
+==========Sandwich Factory Receipt==========
+Chips: Doritos
+
+ Total: $1.50

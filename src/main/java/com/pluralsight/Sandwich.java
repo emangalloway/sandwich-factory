@@ -1,4 +1,4 @@
-package com.plurasight;
+package com.pluralsight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +127,7 @@ public class Sandwich implements IPriceable {
         List<String> sauceNames = new ArrayList<>();
 
         for (Topping top : topping) {
-            if (top instanceof Meats){
+            if (top instanceof Meat){
                 meatSection.append(top);
             }
             if (top instanceof Cheese) {
@@ -141,12 +141,12 @@ public class Sandwich implements IPriceable {
                 .forEach(name -> regToppingNames.add(name));
         //Lambda Expression for adding sauces to the list as a String
         topping.stream()
-                .filter(t->t instanceof Sauces)
+                .filter(t->t instanceof Sauce)
                 .map(Object::toString)
                 .forEach(name->sauceNames.add(name));
 
         for (Topping top : extraTopping) {
-            if (top instanceof Meats && isExtraMeat()){
+            if (top instanceof Meat && isExtraMeat()){
                 extraMeatSection.append(top);
             }
             if (top instanceof Cheese && isExtraCheese()){

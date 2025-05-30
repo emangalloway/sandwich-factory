@@ -1,8 +1,8 @@
-package com.plurasight;
+package com.pluralsight;
 
-public class Meats extends PremiumTopping {
+public class Meat extends PremiumTopping {
 
-    public Meats(String name) {
+    public Meat(String name) {
         super(name);
     }
 

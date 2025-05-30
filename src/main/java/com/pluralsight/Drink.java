@@ -1,4 +1,4 @@
-package com.plurasight;
+package com.pluralsight;
 
 public class Drink implements IPriceable {
     private String  drinkType;

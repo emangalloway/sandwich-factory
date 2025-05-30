@@ -1,4 +1,4 @@
-package com.plurasight;
+package com.pluralsight;
 
 import java.util.Scanner;
 
@@ -126,10 +126,10 @@ public class UI {
         System.out.println("5.) Chicken");
         System.out.println("6.) Bacon");
         String meatChoice = scanner.nextLine();
-        Meats meats = getMeatsByChoice(meatChoice);
-        Meats extraMeats = null;
-        if (meats != null) {
-            sandwich.addToppings(meats);
+        Meat meat = getMeatsByChoice(meatChoice);
+        Meat extraMeat = null;
+        if (meat != null) {
+            sandwich.addToppings(meat);
 
             if (askYesOrNo("Would you like extra meat?")) {
                 System.out.println("Select extra meat");
@@ -140,13 +140,13 @@ public class UI {
                 System.out.println("5.) Chicken");
                 System.out.println("6.) Bacon");
                 String extraMeatChoice = scanner.nextLine();
-                extraMeats = getMeatsByChoice(extraMeatChoice);
-                if (extraMeats != null){
-                    System.out.println(meats+", and "+extraMeats+" have been added to your sandwich.");
+                extraMeat = getMeatsByChoice(extraMeatChoice);
+                if (extraMeat != null){
+                    System.out.println(meat +", and "+ extraMeat +" have been added to your sandwich.");
                     sandwich.setExtraMeat(true);
-                    sandwich.addExtraTopping(extraMeats);
+                    sandwich.addExtraTopping(extraMeat);
                 }else {
-                    System.out.println(meats+ " has been added to your sandwich.");
+                    System.out.println(meat + " has been added to your sandwich.");
                 }
             }
         }
@@ -211,10 +211,10 @@ public class UI {
         System.out.println("6.) Vinaigrette");
         while (true) {
             String sauceChoice = scanner.nextLine();
-            Sauces sauces = getSaucesByChoice(sauceChoice);
-            if (sauces != null) {
-                sandwich.addToppings(sauces);
-                System.out.println(sauces+" has been added.");
+            Sauce sauce = getSaucesByChoice(sauceChoice);
+            if (sauce != null) {
+                sandwich.addToppings(sauce);
+                System.out.println(sauce +" has been added.");
             } else if (sauceChoice.equalsIgnoreCase("done")) {
                 break;
             }
@@ -243,37 +243,37 @@ public class UI {
             default:return null;
         }
     }
-    private Sauces getSaucesByChoice(String choice){
+    private Sauce getSaucesByChoice(String choice){
         switch (choice){
             case "1":
-                return new Sauces("Mayo");
+                return new Sauce("Mayo");
             case "2":
-                return new Sauces("Mustard");
+                return new Sauce("Mustard");
             case "3":
-                return new Sauces("Ketchup");
+                return new Sauce("Ketchup");
             case "4":
-                return new Sauces("Ranch");
+                return new Sauce("Ranch");
             case "5":
-                return new Sauces("Thousands Island");
+                return new Sauce("Thousands Island");
             case "6":
-                return new Sauces("Vinaigrette");
+                return new Sauce("Vinaigrette");
             default:return null;
         }
     }
-    private Meats getMeatsByChoice(String choice){
+    private Meat getMeatsByChoice(String choice){
         switch (choice){
             case "1":
-                return new Meats("Steak");
+                return new Meat("Steak");
             case "2":
-                return new Meats("Ham");
+                return new Meat("Ham");
             case "3":
-                return new Meats("Salami");
+                return new Meat("Salami");
             case "4":
-                return new Meats("Roast Beef");
+                return new Meat("Roast Beef");
             case "5":
-                return new Meats("Chicken");
+                return new Meat("Chicken");
             case "6":
-                return new Meats("Bacon");
+                return new Meat("Bacon");
             default:return null;
         }
     }
@@ -347,7 +347,8 @@ public class UI {
             }catch (Exception e){
                 System.out.println("Flavor unavailable");
                 flavorChoice = "Water";
-            }Drink drink = new Drink(flavorChoice,sizeChoice);
+            }
+        Drink drink = new Drink(flavorChoice,sizeChoice);
             currentOrder.addPriceable(drink);
     }
     public void processAddChips(){

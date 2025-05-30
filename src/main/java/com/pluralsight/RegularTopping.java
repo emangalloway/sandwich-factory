@@ -1,7 +1,7 @@
-package com.plurasight;
+package com.pluralsight;
 
-public class Sauces extends Topping {
-    public Sauces(String name) {
+public class RegularTopping extends Topping {
+    public RegularTopping(String name) {
         super(name);
     }
 

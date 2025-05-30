@@ -1,4 +1,4 @@
-package com.plurasight;
+package com.pluralsight;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -71,7 +71,7 @@ public class Order {
             if (item instanceof Sandwich){
                 sandwichSection.append(item);
                 item.getPrice();
-            } else if (item instanceof  Drink) {
+            } else if (item instanceof Drink) {
                 drinkSection.append(item);
                 item.getPrice();
             }else

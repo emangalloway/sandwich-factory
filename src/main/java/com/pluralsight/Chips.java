@@ -1,4 +1,4 @@
-package com.plurasight;
+package com.pluralsight;
 
 public class Chips implements IPriceable {
     private String chipBrand;
