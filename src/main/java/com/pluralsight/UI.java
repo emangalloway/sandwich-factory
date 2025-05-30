@@ -294,8 +294,10 @@ public class UI {
     }
     private boolean askYesOrNo(String prompt){
         System.out.println(prompt+"(Yes/No)");
+        System.out.println("1.) yes");
+        System.out.println("2.) no");
         String input = scanner.nextLine();
-        if (input.equalsIgnoreCase("Yes")){
+        if (input.equalsIgnoreCase("Yes") || input.equals("1")){
             return true;
         }else
             return false;
