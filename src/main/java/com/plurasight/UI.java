@@ -352,10 +352,27 @@ public class UI {
     }
     public void processAddChips(){
         System.out.println("==========Chips==========");
-        System.out.println("Doritos");
-        System.out.println("Lays");
-        System.out.println("Pringles");
-        String chipChoice = scanner.nextLine();
+        System.out.println("1.) Doritos");
+        System.out.println("2.) Lays");
+        System.out.println("3.) Cheetos");
+        System.out.println("4.) Pringles");
+        String chipInput = scanner.nextLine();
+        String chipChoice;
+        try {
+            chipChoice = switch (chipInput) {
+                case "1" -> "Doritos";
+                case "2" -> "Lays";
+                case "3" -> "Cheetos";
+                case "4" -> "Pringles";
+                default -> {
+                    System.out.println("Invalid option defaulting to lays.");
+                    yield "Lays";
+                }
+            };
+        }catch (Exception e){
+            System.out.println("Chip not found, Defaulting to lays.");
+            chipChoice = "Lays";
+        }
         Chips chips = new Chips(chipChoice);
             currentOrder.addPriceable(chips);
 
