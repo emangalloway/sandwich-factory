@@ -133,13 +133,17 @@ public class Sandwich implements IPriceable {
             if (top instanceof Cheese) {
                 cheeseSection.append(top);
             }
-            if (top instanceof RegularTopping){
-                regToppingNames.add(top.toString());
-            }
-            if (top instanceof Sauces){
-                sauceNames.add(top.toString());
-            }
         }
+        //Lambda Expression for adding regular toppings to the list as a String
+        topping.stream()
+                .filter(t->t instanceof RegularTopping)
+                .map(Object::toString)
+                .forEach(name -> regToppingNames.add(name));
+        //Lambda Expression for adding sauces to the list as a String
+        topping.stream()
+                .filter(t->t instanceof Sauces)
+                .map(Object::toString)
+                .forEach(name->sauceNames.add(name));
 
         for (Topping top : extraTopping) {
             if (top instanceof Meats && isExtraMeat()){

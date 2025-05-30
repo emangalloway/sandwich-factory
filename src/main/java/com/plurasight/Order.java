@@ -27,10 +27,11 @@ public class Order {
     }
 
     public double getPrice(){
-        double total = 0;
-        for (IPriceable item : items) {
-            total += item.getPrice();
-        }
+        //Lambda Expression to return the items price
+       double total
+               = items.stream()
+                .mapToDouble(IPriceable::getPrice)
+                .sum();
         return total;
     }
     public String generateOrderId(){
