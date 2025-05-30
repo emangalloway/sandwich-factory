@@ -4,7 +4,9 @@ Sandwich Factory
 
 This application allows user to shop at the Sandwich Factory. User can build sandwich to add to order.User can also add drink and chips to order.
 
+## UML Class Diagram
 
+![Sandwich Shop Capstone (5).png](Sandwich%20Shop%20Capstone%20%285%29.png)
 
 ## User Stories
 - As a customer, I want to start a new order from the main menu, so that I can build a custom meal.
@@ -20,13 +22,13 @@ This application allows user to shop at the Sandwich Factory. User can build san
 
 ## Setup
 
-- Create a new project, Project Title: Dealership Updated
+- Create a new project, Project Title: Sandwich Factory
 - Check create GitHub repo
 - Ensure that Maven is builder
 - Ensure Java 17 is language
 - Click create and the add new package
-- Add classes needed for the Dealership.
-- Add contracts.csv
+- Add classes needed for the Sandwich Factory.
+- Add receipts folder
 ### Prerequisites
 
 - IntelliJ IDEA: Ensure you have IntelliJ IDEA installed, which you can download from [here](https://www.jetbrains.com/idea/download/).
@@ -44,17 +46,24 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
+
 - Java: 17.
 - IntelliJ.
 - GitHub & GitHub projects
 - GitBash
 
+## Demo
+![SandwichFactoryMain.java2025-05-3000-49-39-ezgif.com-video-to-gif-converter.gif](SandwichFactoryMain.java2025-05-3000-49-39-ezgif.com-video-to-gif-converter.gif)
 ## Future Work
 
-- Create a purchase from customer option.
+- Create a GUI for user to have a more aesthetic appeal.
 
 ## Resources
 - Potato Sensei
+- Workbook 4 - OOP in Java v2.1Y
+- Workbook 5 - Inheritance v2.1Y
+- Workbook 6 - Advanced OOP v2.2Y
+- https://lucid.app/
 
 ## Team Members
 

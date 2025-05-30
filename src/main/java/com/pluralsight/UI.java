@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class UI {
     private Order currentOrder;
     private Scanner scanner;
-    public UI(){scanner = new Scanner(System.in);
+    public UI(){
+        scanner = new Scanner(System.in);
     }
 
     public void displayMenu(){
