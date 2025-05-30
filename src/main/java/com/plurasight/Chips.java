@@ -1,6 +1,6 @@
 package com.plurasight;
 
-public class Chips implements IPriceable{
+public class Chips implements IPriceable {
     private String chipBrand;
 
     public Chips(String chipBrand) {

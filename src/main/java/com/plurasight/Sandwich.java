@@ -159,7 +159,7 @@ public class Sandwich implements IPriceable {
                 .append("Extra Meat: ").append(extraMeatSection).append("\n")
                 .append("Extra Cheese: ").append(extraCheeseSection).append("\n")
                 .append("Topping: ").append(regToppingSection).append("\n")
-                .append("Sauce: ").append(saucesSection);
+                .append("Sauce: ").append(saucesSection).append("\n");
         return stringBuilder.toString();
     }
 }

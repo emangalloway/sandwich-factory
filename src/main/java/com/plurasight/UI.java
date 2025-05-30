@@ -182,37 +182,39 @@ public class UI {
 
         System.out.println("==========Select Toppings==========");
         System.out.println("Add toppings (Type done when finished)");
+        System.out.println("1.) Lettuce");
+        System.out.println("2.) Peppers");
+        System.out.println("3.) Onions");
+        System.out.println("4.) Tomatoes");
+        System.out.println("5.) Jalapenos");
+        System.out.println("6.) Cucumbers");
+        System.out.println("7.) Pickles");
+        System.out.println("8.) Guacamole");
+        System.out.println("9.) Mushrooms");
         while (true){
-            System.out.println("1.) Lettuce");
-            System.out.println("2.) Peppers");
-            System.out.println("3.) Onions");
-            System.out.println("4.) Tomatoes");
-            System.out.println("5.) Jalapenos");
-            System.out.println("6.) Cucumbers");
-            System.out.println("7.) Pickles");
-            System.out.println("8.) Guacamole");
-            System.out.println("9.) Mushrooms");
             String choice = scanner.nextLine();
             RegularTopping topping = getRegularToppingByChoice(choice);
             if (topping != null) {
                 sandwich.addToppings(topping);
+                System.out.println(topping+" has been added.");
             } else if (choice.equalsIgnoreCase("done")) {
                 break;
             }
         }
         System.out.println("==========Select sauces==========");
         System.out.println("Add sauces (Type done when finished)");
+        System.out.println("1.) Mayo");
+        System.out.println("2.) Mustard");
+        System.out.println("3.) Ketchup");
+        System.out.println("4.) Ranch");
+        System.out.println("5.) Thousands Island");
+        System.out.println("6.) Vinaigrette");
         while (true) {
-            System.out.println("1.) Mayo");
-            System.out.println("2.) Mustard");
-            System.out.println("3.) Ketchup");
-            System.out.println("4.) Ranch");
-            System.out.println("5.) Thousands Island");
-            System.out.println("6.) Vinaigrette");
             String sauceChoice = scanner.nextLine();
             Sauces sauces = getSaucesByChoice(sauceChoice);
             if (sauces != null) {
                 sandwich.addToppings(sauces);
+                System.out.println(sauces+" has been added.");
             } else if (sauceChoice.equalsIgnoreCase("done")) {
                 break;
             }
@@ -349,15 +351,13 @@ public class UI {
             currentOrder.addPriceable(drink);
     }
     public void processAddChips(){
-        if (askYesOrNo("Would you like chips")){
-            System.out.println("Which brand");
-            System.out.println("Doritos");
-            System.out.println("Lays");
-            System.out.println("Pringles");
-            String chipChoice = scanner.nextLine();
-            Chips chips = new Chips(chipChoice);
+        System.out.println("==========Chips==========");
+        System.out.println("Doritos");
+        System.out.println("Lays");
+        System.out.println("Pringles");
+        String chipChoice = scanner.nextLine();
+        Chips chips = new Chips(chipChoice);
             currentOrder.addPriceable(chips);
-        }
 
     }
     public void processCheckOut() {

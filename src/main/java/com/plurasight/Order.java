@@ -42,8 +42,10 @@ public class Order {
 
     public String getOrderDetails(){
         StringBuilder receipt = new StringBuilder();
+        System.out.println();
         receipt.append("Order ID: ").append(orderId).append("\n");
         receipt.append("Date: ").append(date).append("\n");
+        receipt.append("==========Sandwich Factory Receipt==========").append("\n");
 
         for (IPriceable item : items) {
             receipt.append(item.toString()).append("\n");

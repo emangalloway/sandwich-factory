@@ -1,6 +1,6 @@
 package com.plurasight;
 
-public class Drink implements IPriceable{
+public class Drink implements IPriceable {
     private String  drinkType;
     private String size;
 
